@@ -10,8 +10,6 @@ Dark green: #28b485
     margin: 0;
     padding: 0;
     /* Changes the box models so that the borders and padding aren't added to total width */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -22,7 +20,7 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
-    /* white border around entire webpage */
+    /* white border around entire web page */
     padding: 30px;
 }
 
@@ -31,7 +29,6 @@ body {
     height: 95vh;
     /* set bg image from image folder and set the linear gradient */
     /* cover will always try to fit the element in the viewport */
-    -webkit-background-size: cover;
     background-size: cover;
     /* no matter the viewport size, the top will not get cropped */
     background: linear-gradient(
@@ -66,11 +63,9 @@ body {
     /* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
     top: 40%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    /*fix shakiness of some animations*/
+    backface-visibility: hidden;
 }
 
 /* h1 element */
@@ -86,6 +81,16 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInLeft;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /*animation shorthand*/
+    animation: moveInLeft 1s ease-out;
+
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 3s;*/
 }
 
 /* "is where life happens" */
@@ -95,4 +100,69 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInRight;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /* animation shorthand */
+    animation: moveInRight 1s ease-out;
+}
+
+/* creating animations - browsers are optimized to opacity and transform animations */
+@keyframes moveInLeft {
+     0% {
+         opacity: 0;
+         -webkit-transform: translateX(-100px);
+         -moz-transform: translateX(-100px);
+         -ms-transform: translateX(-100px);
+         -o-transform: translateX(-100px);
+         transform: translateX(-100px);
+     }
+
+     80% {
+         -webkit-transform: translateX(10px);
+         -moz-transform: translateX(10px);
+         -ms-transform: translateX(10px);
+         -o-transform: translateX(10px);
+         transform: translateX(10px);
+     }
+
+     100% {
+         opacity: 1;
+         -webkit-transform: translateX(0);
+         -moz-transform: translateX(0);
+         -ms-transform: translateX(0);
+         -o-transform: translateX(0);
+         transform: translateX(0);
+     }
+ }
+
+/* creating animations - browsers are optimized to opacity and transform animations */
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+        -moz-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        -o-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    80% {
+        -webkit-transform: translateX(-10px);
+        -moz-transform: translateX(-10px);
+        -ms-transform: translateX(-10px);
+        -o-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
