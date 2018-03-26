@@ -147,6 +147,19 @@ body {
 	}
 }
 
+/* creating animations - browsers are optimized to opacity and transform animations */
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
 /* header button styles - :link pseudoclass to treat as a link, :visited so it will look the same visited or not */
 .btn:link,
 .btn:visited {
@@ -159,6 +172,8 @@ body {
 	border-radius: 100px;
 	/* enable all properties to be animated */
 	transition: all 0.2s;
+	/* so we can set absolute position of btn::after */
+	position: relative;
 }
 
 .btn:hover {
@@ -175,4 +190,41 @@ body {
 .btn-white {
 	background-color: #fff;
 	color: #777;
+}
+
+/* ::after acts like a virtual element */
+.btn::after {
+	/* must specify content and display */
+	content: "";
+	display: inline-block;
+	/* gives same dimensions and btn */
+	height: 100%;
+	width: 100%;
+	/* give same styles */
+	border-radius: 100px;
+	/* put it behing btn */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	/* enable/control animations? */
+	transition: all 0.4s;
+}
+
+/* btn-white pseudo styles */
+.btn-white::after {
+	background-color: #fff;
+}
+
+/* :hover pseudo states */
+.btn:hover::after {
+	/* make it bigger */
+	transform: scaleX(1.4) scaleY(1.6);
+	opacity: 0;
+}
+
+.btn-animated {
+	animation: moveInBottom 0.5s ease-out 0.75s;
+	/* applies 0% keyframe before animation starts */
+	animation-fill-mode: backwards;
 }
