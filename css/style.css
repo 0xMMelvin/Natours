@@ -30,16 +30,69 @@ body {
     /* set header at 95% of viewport height */
     height: 95vh;
     /* set bg image from image folder and set the linear gradient */
-    background-image: linear-gradient(
-            to right bottom,
-            rgba(126, 213, 111, .8),
-            rgba(40, 180, 133, .8)),
-    url("../img/hero.jpg");
     /* cover will always try to fit the element in the viewport */
     -webkit-background-size: cover;
     background-size: cover;
     /* no matter the viewport size, the top will not get cropped */
-    background-position: top;
+    background: linear-gradient(
+            to right bottom,
+            rgba(126, 213, 111, .8),
+            rgba(40, 180, 133, .8)),
+    url("../img/hero.jpg") top;
     /* gives the bottom slant effect, coordinates go clockwise from top left, x positive in right, y positive down */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* added for logo-box absolute position reference */
+    position: relative;
+}
+
+/* div containing the logo in top left of header */
+.logo-box {
+    position: absolute;
+    /* px count starts from top left of parent with position: relative */
+    top: 40px;
+    left: 40px;
+}
+
+/* the logo in the top left */
+.logo {
+    /* width/height is automatically set when we set only one*/
+    height: 35px;
+}
+
+/* container for header text and button */
+.text-box {
+    /* centering */
+    position: absolute;
+    /* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* h1 element */
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* "Outdoors" */
+.heading-primary-main{
+    /* sets this on top bc span is inline */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+/* "is where life happens" */
+.heading-primary-sub {
+    /* sets this on bottom bc span is inline */
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
