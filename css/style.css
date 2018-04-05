@@ -59,7 +59,7 @@ body {
 }
 
 /* div containing the logo in top left of header */
-.logo-box {
+.header__logo-box {
 	position: absolute;
 	/* px count starts from top left of parent with position: relative */
 	top: 4rem;
@@ -67,13 +67,13 @@ body {
 }
 
 /* the logo in the top left */
-.logo {
+.header__logo {
 	/* width/height is automatically set when we set only one*/
 	height: 3.5rem;
 }
 
 /* container for header text and button */
-.text-box {
+.header__text-box {
 	/* centering */
 	position: absolute;
 	/* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
@@ -94,7 +94,7 @@ body {
 }
 
 /* "Outdoors" */
-.heading-primary-main {
+.heading-primary--main {
 	/* sets this on top bc span is inline */
 	display: block;
 	font-size: 6rem;
@@ -113,7 +113,7 @@ body {
 }
 
 /* "is where life happens" */
-.heading-primary-sub {
+.heading-primary--sub {
 	/* sets this on bottom bc span is inline */
 	display: block;
 	font-size: 2rem;
@@ -203,7 +203,7 @@ body {
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
 	background-color: #fff;
 	color: #777;
 }
@@ -239,7 +239,7 @@ body {
 	opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
 	animation: moveInBottom 0.5s ease-out 0.75s;
 	/* applies 0% keyframe before animation starts */
 	animation-fill-mode: backwards;
