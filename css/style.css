@@ -6,22 +6,37 @@ Dark green: #28b485
 */
 
 /* Reset to normalize across all browsers */
-* {
+*,
+/* set for pseudo-before-after elements */
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
 	/* Changes the box models so that the borders and padding aren't added to total width */
-	box-sizing: border-box;
+	/* moved to body to use inheritance */
+	/* box-sizing: border-box; */
+	box-sizing: inherit;
+}
+
+html {
+	/* set root font-size to 10px so that rem/em is easy to set */
+	/* but that overwrites the browser's default font-size and doesnt allow for user scaling */
+	/* default browser font-size is 16px, so we will use 62.5% */
+	font-size: 62.5%;
 }
 
 /* Setting fonts for project, putting in body will cause everything to inherit */
 body {
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
-	font-size: 16px;
+	/* commented out bc we will now use rem/em */
+	/* font-size: 16px; */
 	line-height: 1.7;
 	color: #777;
 	/* white border around entire web page */
-	padding: 30px;
+	padding: 3rem;
+	/* Changes the box models so that the borders and padding aren't added to total width */
+	box-sizing: border-box;
 }
 
 .header {
@@ -47,14 +62,14 @@ body {
 .logo-box {
 	position: absolute;
 	/* px count starts from top left of parent with position: relative */
-	top: 40px;
-	left: 40px;
+	top: 4rem;
+	left: 4rem;
 }
 
 /* the logo in the top left */
 .logo {
 	/* width/height is automatically set when we set only one*/
-	height: 35px;
+	height: 3.5rem;
 }
 
 /* container for header text and button */
@@ -65,8 +80,6 @@ body {
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	/*fix shakiness of some animations*/
-	backface-visibility: hidden;
 	/* added this to center the text inside of the button */
 	text-align: center;
 }
@@ -75,16 +88,18 @@ body {
 .heading-primary {
 	color: #fff;
 	text-transform: uppercase;
-	margin-bottom: 60px;
+	/*fix shakiness of some animations*/
+	backface-visibility: hidden;
+	margin-bottom: 6rem;
 }
 
 /* "Outdoors" */
 .heading-primary-main {
 	/* sets this on top bc span is inline */
 	display: block;
-	font-size: 60px;
+	font-size: 6rem;
 	font-weight: 400;
-	letter-spacing: 35px;
+	letter-spacing: 3.5rem;
 
 	/* animation properties - animation-name and animation-duration are required */
 	/*animation-name: moveInLeft;*/
@@ -101,9 +116,9 @@ body {
 .heading-primary-sub {
 	/* sets this on bottom bc span is inline */
 	display: block;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: 700;
-	letter-spacing: 17.4px;
+	letter-spacing: 1.75rem;
 
 	/* animation properties - animation-name and animation-duration are required */
 	/*animation-name: moveInRight;*/
@@ -117,11 +132,11 @@ body {
 @keyframes moveInLeft {
 	0% {
 		opacity: 0;
-		transform: translateX(-100px);
+		transform: translateX(-10rem);
 	}
 
 	80% {
-		transform: translateX(10px);
+		transform: translateX(1rem);
 	}
 
 	100% {
@@ -134,11 +149,11 @@ body {
 @keyframes moveInRight {
 	0% {
 		opacity: 0;
-		transform: translateX(100px);
+		transform: translateX(10rem);
 	}
 
 	80% {
-		transform: translateX(-10px);
+		transform: translateX(-1rem);
 	}
 
 	100% {
@@ -151,7 +166,7 @@ body {
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateY(3rem);
 	}
 
 	100% {
@@ -165,26 +180,27 @@ body {
 .btn:visited {
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 15px 40px;
+	padding: 1.5rem 4rem;
 	/* display as inline-block, should do this if we want to get some paddings? */
 	display: inline-block;
 	/* give rounded edges */
-	border-radius: 100px;
+	border-radius: 10rem;
 	/* enable all properties to be animated */
 	transition: all 0.2s;
 	/* so we can set absolute position of btn::after */
 	position: relative;
+	font-size: 1.6rem;
 }
 
 .btn:hover {
-	transform: translateY(-3px);
+	transform: translateY(-0.3rem);
 	/* x y blur color */
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-	transform: translateY(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	transform: translateY(-0.1rem);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -201,7 +217,7 @@ body {
 	height: 100%;
 	width: 100%;
 	/* give same styles */
-	border-radius: 100px;
+	border-radius: 10rem;
 	/* put it behing btn */
 	position: absolute;
 	top: 0;
