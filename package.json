@@ -1,0 +1,12 @@
+{
+	"name": "Natours",
+	"version": "1.0.0",
+	"description": "Landing page for Natours",
+	"main": "index.js",
+	"repository": "https://github.com/mmelvin0581/Natours.git",
+	"author": "Michael Melvin <mmelvin0581@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"node-sass": "^4.8.3"
+	}
+}
