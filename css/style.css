@@ -39,30 +39,27 @@ body {
   /* gives the bottom slant effect, coordinates go clockwise from top left, x positive in right, y positive down */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* added for logo-box absolute position reference */
-  position: relative; }
-
-/* div containing the logo in top left of header */
-.header__logo-box {
-  position: absolute;
-  /* px count starts from top left of parent with position: relative */
-  top: 4rem;
-  left: 4rem; }
-
-/* the logo in the top left */
-.header__logo {
-  /* width/height is automatically set when we set only one*/
-  height: 3.5rem; }
-
-/* container for header text and button */
-.header__text-box {
-  /* centering */
-  position: absolute;
-  /* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* added this to center the text inside of the button */
-  text-align: center; }
+  position: relative;
+  /* the logo in the top left */
+  /* container for header text and button */ }
+  .header__logo-box {
+    /* div containing the logo in top left of header */
+    position: absolute;
+    /* px count starts from top left of parent with position: relative */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* width/height is automatically set when we set only one*/
+    height: 3.5rem; }
+  .header__text-box {
+    /* centering */
+    position: absolute;
+    /* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* added this to center the text inside of the button */
+    text-align: center; }
 
 /* h1 element */
 .heading-primary {
@@ -70,37 +67,35 @@ body {
   text-transform: uppercase;
   /*fix shakiness of some animations*/
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
-
-/* "Outdoors" */
-.heading-primary--main {
-  /* sets this on top bc span is inline */
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /* animation properties - animation-name and animation-duration are required */
-  /*animation-name: moveInLeft;*/
-  /*animation-duration: 1s;*/
-  /*animation-timing-function: ease-out;*/
-  /*animation shorthand*/
-  animation: moveInLeft 1s ease-out;
-  /*animation-iteration-count: 3;*/
-  /*animation-delay: 3s;*/ }
-
-/* "is where life happens" */
-.heading-primary--sub {
-  /* sets this on bottom bc span is inline */
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* animation properties - animation-name and animation-duration are required */
-  /*animation-name: moveInRight;*/
-  /*animation-duration: 1s;*/
-  /*animation-timing-function: ease-out;*/
-  /* animation shorthand */
-  animation: moveInRight 1s ease-out; }
+  margin-bottom: 6rem;
+  /* "Outdoors" */
+  /* "is where life happens" */ }
+  .heading-primary--main {
+    /* sets this on top bc span is inline */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInLeft;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /*animation shorthand*/
+    animation: moveInLeft 1s ease-out;
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 3s;*/ }
+  .heading-primary--sub {
+    /* sets this on bottom bc span is inline */
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInRight;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /* animation shorthand */
+    animation: moveInRight 1s ease-out; }
 
 /* creating animations - browsers are optimized to opacity and transform animations */
 @keyframes moveInLeft {
@@ -134,63 +129,56 @@ body {
     transform: translateX(0); } }
 
 /* header button styles - :link pseudoclass to treat as a link, :visited so it will look the same visited or not */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* display as inline-block, should do this if we want to get some paddings? */
-  display: inline-block;
-  /* give rounded edges */
-  border-radius: 10rem;
-  /* enable all properties to be animated */
-  transition: all 0.2s;
-  /* so we can set absolute position of btn::after */
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* x y blur color */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* ::after acts like a virtual element */
-.btn::after {
-  /* must specify content and display */
-  content: "";
-  display: inline-block;
-  /* gives same dimensions and btn */
-  height: 100%;
-  width: 100%;
-  /* give same styles */
-  border-radius: 10rem;
-  /* put it behing btn */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /* enable/control animations? */
-  transition: all 0.4s; }
-
-/* btn-white pseudo styles */
-.btn-white::after {
-  background-color: #fff; }
-
-/* :hover pseudo states */
-.btn:hover::after {
-  /* make it bigger */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* applies 0% keyframe before animation starts */
-  animation-fill-mode: backwards; }
+.btn {
+  /* ::after acts like a virtual element */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* display as inline-block, should do this if we want to get some paddings? */
+    display: inline-block;
+    /* give rounded edges */
+    border-radius: 10rem;
+    /* enable all properties to be animated */
+    transition: all 0.2s;
+    /* so we can set absolute position of btn::after */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    /* x y blur color */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* :hover pseudo states */ }
+    .btn:hover::after {
+      /* make it bigger */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777;
+    /* btn-white pseudo styles */ }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* must specify content and display */
+    content: "";
+    display: inline-block;
+    /* gives same dimensions and btn */
+    height: 100%;
+    width: 100%;
+    /* give same styles */
+    border-radius: 10rem;
+    /* put it behing btn */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* enable/control animations? */
+    transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* applies 0% keyframe before animation starts */
+    animation-fill-mode: backwards; }
