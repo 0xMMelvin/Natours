@@ -1,0 +1,54 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* commented out bc we will now use rem/em */
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  /* white border around entire web page */
+  padding: 3rem;
+}
+
+/* h1 element */
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /*fix shakiness of some animations*/
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  /* "Outdoors" */
+  &--main {
+    /* sets this on top bc span is inline */
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInLeft;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /*animation shorthand*/
+    animation: moveInLeft 1s ease-out;
+
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 3s;*/
+  }
+
+  /* "is where life happens" */
+  &--sub {
+    /* sets this on bottom bc span is inline */
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /* animation properties - animation-name and animation-duration are required */
+    /*animation-name: moveInRight;*/
+    /*animation-duration: 1s;*/
+    /*animation-timing-function: ease-out;*/
+    /* animation shorthand */
+    animation: moveInRight 1s ease-out;
+  }
+}

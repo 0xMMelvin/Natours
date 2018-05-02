@@ -1,0 +1,44 @@
+.header {
+  /* set header at 95% of viewport height */
+  height: 95vh;
+  /* set bg image from image folder and set the linear gradient */
+  /* cover will always try to fit the element in the viewport */
+  background-size: cover;
+  /* no matter the viewport size, the top will not get cropped */
+  background: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)
+  ),
+  url("../../img/hero.jpg") top;
+  /* gives the bottom slant effect, coordinates go clockwise from top left, x positive in right, y positive down */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* added for logo-box absolute position reference */
+  position: relative;
+
+  &__logo-box {
+    /* div containing the logo in top left of header */
+    position: absolute;
+    /* px count starts from top left of parent with position: relative */
+    top: 4rem;
+    left: 4rem;
+  }
+
+  /* the logo in the top left */
+  &__logo {
+    /* width/height is automatically set when we set only one*/
+    height: 3.5rem;
+  }
+
+  /* container for header text and button */
+  &__text-box {
+    /* centering */
+    position: absolute;
+    /* did 40% instead of 50% bc of clipping; again top and bottom are relative to the parent element */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* added this to center the text inside of the button */
+    text-align: center;
+  }
+}

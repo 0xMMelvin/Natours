@@ -1,0 +1,71 @@
+/* header button styles - :link pseudoclass to treat as a link, :visited so it will look the same visited or not */
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* display as inline-block, should do this if we want to get some paddings? */
+    display: inline-block;
+    /* give rounded edges */
+    border-radius: 10rem;
+    /* enable all properties to be animated */
+    transition: all 0.2s;
+    /* so we can set absolute position of btn::after */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* x y blur color */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    /* :hover pseudo states */
+    &::after {
+      /* make it bigger */
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    /* btn-white pseudo styles */
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* ::after acts like a virtual element */
+  &::after {
+    /* must specify content and display */
+    content: "";
+    display: inline-block;
+    /* gives same dimensions and btn */
+    height: 100%;
+    width: 100%;
+    /* give same styles */
+    border-radius: 10rem;
+    /* put it behind btn */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* enable/control animations? */
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* applies 0% keyframe before animation starts */
+    animation-fill-mode: backwards;
+  }
+}
