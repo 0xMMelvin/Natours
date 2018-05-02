@@ -1,0 +1,11 @@
+@mixin clearfix {
+  // stop o height on first grid row div
+  &::after {
+    // have to have content or it will not be visible but we leave it black bc we don't want to 'see' it
+    content: "";
+    // standard for clearfix
+    display: table;
+    // clear both float left and right
+    clear: both;
+  }
+}
