@@ -1,7 +1,6 @@
 .row {
   // if viewport is smaller, then it will fill 100% of available space
   max-width: $grid-width;
-  background-color: #eee;
   // center block element inside another block element
   margin: 0 auto;
 
@@ -16,7 +15,6 @@
 
   // use attribute selector to select all class attributes that start with col-
   [class^="col-"] {
-    background-color: orangered;
     float: left;
     // apply margin-right to all but right most column
     &:not(:last-child) {

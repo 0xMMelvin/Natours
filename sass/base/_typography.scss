@@ -52,3 +52,26 @@ body {
     animation: moveInRight 1s ease-out;
   }
 }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  // set gradient of text
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  // stop from occupying 100% of element width
+  display: inline-block;
+  // put gradient behind the text
+  -webkit-background-clip: text;
+  // make text transparent to only see bg gradient
+  color: transparent;
+  letter-spacing: .2rem;
+
+  // change smoothly
+  transition: all .2s;
+  // give motion on hover
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
+}
