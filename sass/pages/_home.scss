@@ -4,3 +4,22 @@
   // shift up 20vh to get rid of white space
   margin-top: -20vh;
 }
+
+.section-features {
+  padding: 20rem 0;
+  background: linear-gradient(
+                  to right bottom,
+                  rgba($color-primary-light, 0.8),
+                  rgba($color-primary-dark, 0.8)),
+  url(../img/nat-4.jpg);
+  background-size: cover;
+
+  // skew the section
+  transform: skewY(-7deg);
+  // shift up
+  margin-top: -10rem;
+
+  & > * {
+    transform: skewY(7deg);
+  }
+}
