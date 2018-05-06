@@ -12,6 +12,7 @@
   ),
   url("../img/hero.jpg") top;
   /* gives the bottom slant effect, coordinates go clockwise from top left, x positive in right, y positive down */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* added for logo-box absolute position reference */
   position: relative;
