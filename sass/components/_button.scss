@@ -1,5 +1,6 @@
 /* header button styles - :link pseudoclass to treat as a link, :visited so it will look the same visited or not */
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -14,6 +15,10 @@
     /* so we can set absolute position of btn::after */
     position: relative;
     font-size: $default;
+
+    // change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -29,7 +34,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
