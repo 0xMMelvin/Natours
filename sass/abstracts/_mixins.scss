@@ -1,11 +1,64 @@
 @mixin clearfix {
-  // stop o height on first grid row div
-  &::after {
-    // have to have content or it will not be visible but we leave it black bc we don't want to 'see' it
-    content: "";
-    // standard for clearfix
-    display: table;
-    // clear both float left and right
-    clear: both;
-  }
+	// stop o height on first grid row div
+	&::after {
+		// have to have content or it will not be visible but we leave it black bc we don't want to 'see' it
+		content: "";
+		// standard for clearfix
+		display: table;
+		// clear both float left and right
+		clear: both;
+	}
+}
+
+@mixin absCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// media query manager
+/*
+0 - 600 px:       Phone
+600 - 900 px:     Tablet portrait
+900 - 1200 px:    Tablet landscape
+[1200 - 1800] px: normal styles
+1800+ px:         Big desktop
+*/
+
+/*
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+// Order: Base + typography > general layout + grid > page layout > components
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		// 600px
+		@media (max-width: 37.5em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-port {
+		// 900px
+		@media (max-width: 56.25em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		// 1200px
+		@media (max-width: 75em) {
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		// 1800px
+		@media (min-width: 112.5em) {
+			@content;
+		}
+	}
 }
